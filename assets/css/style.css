@@ -37,6 +37,8 @@ body{
   letter-spacing:-.01em;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
+  word-break:keep-all;
+  overflow-wrap:break-word;
 }
 
 img{ display:block; max-width:100%; height:auto; }
@@ -205,7 +207,7 @@ ul,ol,dl,dd{ margin:0; padding:0; list-style:none; }
   width:100%; height:100%;
   object-fit:cover;
   object-position:center 38%;
-  filter:saturate(.82) contrast(1.04);
+  filter:saturate(.9) contrast(1.02) brightness(1.12);
   transform:scale(1.06);
   animation:heroDrift 22s var(--ease) forwards;
 }
@@ -214,8 +216,8 @@ ul,ol,dl,dd{ margin:0; padding:0; list-style:none; }
 .hero-veil{
   position:absolute; inset:0; z-index:-1;
   background:
-    linear-gradient(105deg, rgba(10,13,20,.95) 0%, rgba(10,13,20,.78) 42%, rgba(10,13,20,.28) 78%, rgba(10,13,20,.62) 100%),
-    linear-gradient(to bottom, rgba(10,13,20,.62) 0%, rgba(10,13,20,.1) 32%, rgba(13,17,26,.92) 96%);
+    linear-gradient(105deg, rgba(10,13,20,.92) 0%, rgba(10,13,20,.66) 44%, rgba(10,13,20,.16) 80%, rgba(10,13,20,.5) 100%),
+    linear-gradient(to bottom, rgba(10,13,20,.55) 0%, rgba(10,13,20,.04) 34%, rgba(13,17,26,.86) 96%);
 }
 
 .hero-inner{
@@ -422,6 +424,7 @@ ul,ol,dl,dd{ margin:0; padding:0; list-style:none; }
   gap:clamp(18px,2.4vw,34px);
 }
 .film{
+  display:flex; flex-direction:column;
   background:rgba(255,255,255,.02);
   border:1px solid var(--line);
   transition:transform .5s var(--ease), border-color .4s, background .4s;
@@ -457,7 +460,10 @@ ul,ol,dl,dd{ margin:0; padding:0; list-style:none; }
   background:rgba(10,13,20,.5);
   backdrop-filter:blur(3px);
 }
-.film-body{ padding:22px 22px 26px; }
+.film-body{
+  padding:22px 22px 26px;
+  display:flex; flex-direction:column; flex:1 1 auto;
+}
 .film-meta{
   font-size:11px; letter-spacing:.06em; color:var(--gold);
   margin-bottom:10px; font-weight:500;
@@ -475,12 +481,14 @@ ul,ol,dl,dd{ margin:0; padding:0; list-style:none; }
 .film-link{
   display:inline-flex; align-items:center; gap:6px;
   margin-top:14px;
+  align-self:flex-start;
   font-size:12px; letter-spacing:.04em; color:var(--gold);
   border-bottom:1px solid rgba(224,184,97,.4);
   padding-bottom:2px;
   transition:gap .3s, border-color .3s;
 }
 .film-link:hover{ gap:10px; border-color:var(--gold); }
+.film .film-link{ margin-top:auto; padding-top:14px; }
 
 /* ---------- AI STUDIO ---------- */
 .studio{
